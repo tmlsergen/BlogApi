@@ -20,6 +20,19 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        $validator = $this->authValidation->register($request->all());
+
+        if ($validator->fails()) {
+            return $this->errorResponse($validator->messages(), 401);
+        }
+
+        $data = $request->all();
+
+        $input = [
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'password' => bcrypt($data['password'])
+        ];
 
     }
 
