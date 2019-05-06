@@ -9,40 +9,18 @@ use Illuminate\Support\Facades\Auth;
 class AuthRepository implements AuthRepositoryInterface
 {
 
-    public function register($data)
+    public function attemptUser($data)
     {
-        try {
-            $user = User::create($data);
-            $userToken = $user->createToken('AppName')->accessToken;
-
-            $response = [
-                $user,
-                $userToken
-            ];
-            return $response;
-        } catch (\Exception $e) {
-            return $e;
-        }
+        return Auth::attempt($data);
     }
 
-    public function login($data)
+    public function createUser($data)
     {
-        if (Auth::attempt($data)) {
-            $user = Auth::user();
-            $userToken = $user->createToken('AppName')->accessToken;
-            $response = [
-                $user,
-                $userToken
-            ];
-            return $response;
-        }else{
-            return 'Unauthorised';
-        }
+        return User::create($data);
     }
 
     public function getUser()
     {
-        $user = Auth::user();
-        return $user;
+        return Auth::user();
     }
 }

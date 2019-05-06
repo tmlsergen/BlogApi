@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Repositories\Contacts\AuthRepositoryInterface;
+use App\Services\Contacts\AuthServiceInterface;
 use App\Traits\ApiResponser;
 use App\Validator\AuthValidation;
 use Illuminate\Http\Request;
@@ -13,12 +13,12 @@ class AuthController extends Controller
     use ApiResponser;
 
     private $authValidation;
-    private $authRepository;
+    private $authService;
 
-    public function __construct(AuthValidation $authValidation, AuthRepositoryInterface $authRepository)
+    public function __construct(AuthValidation $authValidation, AuthServiceInterface $authService)
     {
         $this->authValidation = $authValidation;
-        $this->authRepository = $authRepository;
+        $this->authService = $authService;
 
     }
 
@@ -38,7 +38,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password'])
         ];
 
-        $response = $this->authRepository->register($input);
+        $response = $this->authService->register($input);
 
         return $this->successResponse($response, 200);
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
             return $this->errorResponse($validator->messages(), 401);
         }
 
-        $authResponse = $this->authRepository->login($data);
+        $authResponse = $this->authService->login($data);
 
         if ($authResponse === 'Unauthorised') {
             return $this->errorResponse("Unauthorised", 401);
