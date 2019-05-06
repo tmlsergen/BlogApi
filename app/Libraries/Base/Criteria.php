@@ -2,7 +2,7 @@
 
 namespace App\Libraries\Base;
 
-use App\Libraries\Contacts\RepositoryInterface as Repository;
+use App\Libraries\Contracts\RepositoryInterface as Repository;
 
 abstract class Criteria {
 
