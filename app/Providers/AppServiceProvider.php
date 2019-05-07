@@ -22,6 +22,14 @@ class AppServiceProvider extends ServiceProvider
             'App\Services\Contacts\AuthServiceInterface',
             'App\Services\Base\AuthService'
         );
+        $this->app->bind(
+            'App\Repositories\Contacts\PostRepositoryInterface',
+            'App\Repositories\Base\PostRepository'
+        );
+        $this->app->bind(
+            'App\Services\Contacts\PostServiceInterface',
+            'App\Services\Base\PostService'
+        );
     }
 
     /**
