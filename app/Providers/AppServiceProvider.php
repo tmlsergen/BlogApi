@@ -15,6 +15,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+          'App\Libraries\Contacts\ServiceInterface',
+          'App\Libraries\Base\Service'
+        );
+
+        $this->app->bind(
             'App\Repositories\Contacts\AuthRepositoryInterface',
             'App\Repositories\Base\AuthRepository'
         );
@@ -37,6 +42,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Services\Contacts\CommentServiceInterface',
             'App\Services\Base\CommentService'
+        );
+        $this->app->bind(
+            'App\Repositories\Contacts\CategoryRepositoryInterface',
+            'App\Repositories\Base\CategoryRepository'
+        );
+        $this->app->bind(
+            'App\Services\Contacts\CategoryServiceInterface',
+            'App\Services\Base\CategoryService'
         );
 
     }

@@ -23,5 +23,6 @@ Route::prefix('v1')->group(function () {
     Route::group(['middleware' => ['auth:api' , 'role']], function () {
        Route::resource('/post', 'Api\PostController');
        Route::resource('/comment', 'Api\CommentController');
+       Route::resource('/category', 'Api\CategoryController');
     });
 });
