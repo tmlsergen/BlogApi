@@ -30,6 +30,15 @@ class AppServiceProvider extends ServiceProvider
             'App\Services\Contacts\PostServiceInterface',
             'App\Services\Base\PostService'
         );
+        $this->app->bind(
+            'App\Repositories\Contacts\CommentRepositoryInterface',
+            'App\Repositories\Base\CommentRepository'
+        );
+        $this->app->bind(
+            'App\Services\Contacts\CommentServiceInterface',
+            'App\Services\Base\CommentService'
+        );
+
     }
 
     /**

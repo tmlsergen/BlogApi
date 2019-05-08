@@ -16,31 +16,31 @@ class PostService implements PostServiceInterface
     }
 
     // return all data
-    public function getPost()
+    public function getData()
     {
         return $this->postRepository->all();
     }
 
     // return saved data
-    public function setPost($data)
+    public function setData($data)
     {
         return $this->postRepository->create($data);
     }
 
     // return data by id
-    public function getById($id)
+    public function getDataById($id)
     {
         return $this->postRepository->find($id);
     }
 
     // return 1 or 0
-    public function deletePost($id)
+    public function deleteData($id)
     {
         return $this->postRepository->delete($id);
     }
 
     // return 1 or 0
-    public function updatePost($id, $data)
+    public function updateData($id, $data)
     {
         return $this->postRepository->update($data, $id);
     }
