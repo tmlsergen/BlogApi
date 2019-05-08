@@ -4,7 +4,7 @@ namespace App\Services\Contacts;
 
 use App\Libraries\Contracts\ServiceInterface;
 
-interface PostServiceInterface extends ServiceInterface
+interface CategoryServiceInterface extends ServiceInterface
 {
 
 }
