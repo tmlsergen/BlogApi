@@ -20,7 +20,7 @@ class RoleMiddleware
     {
         $name = $request->route()->action['as'];
         $role = $request->user()->role_id;
-        $permission = Permission::where('permission', $name)->first();
+        $permission = Permission::where('name', $name)->first();
 
         if ($permission) {
             $permissionRole = RolePermission::where('role_id', $role)->where('permission_id', $permission->id)->first();

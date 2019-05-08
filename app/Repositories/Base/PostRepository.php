@@ -7,7 +7,8 @@ use App\Repositories\Contacts\PostRepositoryInterface;
 
 class PostRepository extends Repository implements PostRepositoryInterface
 {
-    public function model() {
+    public function model()
+    {
         return 'App\Models\Post';
     }
 }

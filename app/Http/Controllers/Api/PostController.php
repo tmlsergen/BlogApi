@@ -23,12 +23,12 @@ class PostController extends Controller
 
     public function index()
     {
-        return $this->postService->getPost();
+        return $this->postService->getData();
     }
 
     public function show($id)
     {
-        return $this->postService->getById($id);
+        return $this->postService->getDataById($id);
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class PostController extends Controller
             return $this->errorResponse($validator->messages(), 401);
         }
 
-        return $this->successResponse($this->postService->setPost($request->all()), 200);
+        return $this->successResponse($this->postService->setData($request->all()), 200);
     }
 
     public function update(Request $request, $id)
@@ -48,11 +48,11 @@ class PostController extends Controller
             return $this->errorResponse($validator->messages(), 401);
         }
 
-        return $this->successResponse($this->postService->updatePost($id, $request->all()), 200);
+        return $this->successResponse($this->postService->updateData($id, $request->all()), 200);
     }
 
     public function destroy($id)
     {
-        return $this->postService->deletePost($id);
+        return $this->postService->deleteData($id);
     }
 }

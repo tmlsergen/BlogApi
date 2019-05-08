@@ -9,6 +9,6 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
 {
     public function model()
     {
-        return 'App/Models/Comment';
+        return 'App\Models\Comment';
     }
 }
