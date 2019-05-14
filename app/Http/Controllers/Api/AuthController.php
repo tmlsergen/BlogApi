@@ -59,7 +59,7 @@ class AuthController extends Controller
         if ($authResponse === 'Unauthorised') {
             return $this->errorResponse("Unauthorised", 401);
         } else {
-            return $this->successResponseWithDataKey($authResponse, 200);
+            return $this->successResponse($authResponse, 200);
         }
     }
 }
