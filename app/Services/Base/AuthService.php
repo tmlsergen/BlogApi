@@ -45,5 +45,8 @@ class AuthService implements AuthServiceInterface
         }
     }
 
-
+    public function updateUser($data, $id)
+    {
+        return $this->authRepositroy->updateUser($data, $id);
+    }
 }

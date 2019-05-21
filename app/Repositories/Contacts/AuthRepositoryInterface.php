@@ -7,4 +7,5 @@ interface AuthRepositoryInterface
     public function getUser();
     public function createUser($data);
     public function attemptUser($data);
+    public function updateUser($data, $id);
 }

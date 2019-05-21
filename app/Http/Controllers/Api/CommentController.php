@@ -43,7 +43,7 @@ class CommentController extends Controller
         if ($validator->fails())
             return $this->errorResponse($validator->messages(), 401);
 
-        return $this->successResponseWithDataKey($this->commentService->updateData($id, $request->all()), 200);
+        return $this->successResponse($this->commentService->updateData($id, $request->all()), 200);
     }
 
     public function show($id)
@@ -54,6 +54,11 @@ class CommentController extends Controller
     public function destroy($id)
     {
         return $this->commentService->deleteData($id);
+    }
+
+    public function post($id)
+    {
+        return $this->commentService->getByPostId($id);
     }
 
 }

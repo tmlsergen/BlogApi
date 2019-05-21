@@ -11,4 +11,10 @@ class CommentService extends Service implements CommentServiceInterface
     {
         return 'App\Repositories\Contacts\CommentRepositoryInterface';
     }
+
+    public function getByPostId($id)
+    {
+        return $this->repositoryParam->findAllBy('post_id', $id);
+    }
+
 }

@@ -6,5 +6,5 @@ use App\Libraries\Contracts\ServiceInterface;
 
 interface CommentServiceInterface extends ServiceInterface
 {
-
+    public function getByPostId($id);
 }

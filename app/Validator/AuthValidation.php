@@ -27,7 +27,7 @@ class AuthValidation
         return $validator;
     }
 
-    public  function login($data)
+    public function login($data)
     {
         $valid = [
             'email' => 'required',
@@ -37,6 +37,40 @@ class AuthValidation
         $validMessage = [
             'email.required' => 'You must give as email for login.',
             'password.required' => 'You must give as password'
+        ];
+
+        $validator = validator($data, $valid, $validMessage);
+
+        return $validator;
+    }
+
+    public function updateNameEmail($data)
+    {
+        $valid = [
+            'email' => 'required',
+            'name' => 'required'
+        ];
+
+        $validMessage = [
+            'email.required' => 'You must give as email for login.',
+            'name.required' => 'You must give as name'
+        ];
+
+        $validator = validator($data, $valid, $validMessage);
+
+        return $validator;
+    }
+
+    public function updatePassword($data)
+    {
+        $valid = [
+            'password' => 'required',
+            'c_password' => 'required'
+        ];
+
+        $validMessage = [
+            'password.required' => 'You must give as password.',
+            'c_password.required' => 'You must give as re password'
         ];
 
         $validator = validator($data, $valid, $validMessage);
