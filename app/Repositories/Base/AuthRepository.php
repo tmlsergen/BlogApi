@@ -23,4 +23,9 @@ class AuthRepository implements AuthRepositoryInterface
     {
         return Auth::user();
     }
+
+    public function updateUser($data, $id)
+    {
+        return User::where('id', $id)->update($data);
+    }
 }

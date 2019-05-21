@@ -55,4 +55,9 @@ class PostController extends Controller
     {
         return $this->postService->deleteData($id);
     }
+
+    public function category($id)
+    {
+        return $this->postService->getByCategory($id);
+    }
 }

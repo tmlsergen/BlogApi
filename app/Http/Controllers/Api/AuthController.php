@@ -62,4 +62,24 @@ class AuthController extends Controller
             return $this->successResponse($authResponse, 200);
         }
     }
+
+    public function updateUser(Request $request, $id)
+    {
+        $validator = $this->authValidation->updateNameEmail($request->all());
+
+        if ($validator->fails()) {
+            return $this->errorResponse($validator->messages(), 401);
+        }
+
+        $data = $request->all();
+
+        $input = [
+            'email' => $data['email'],
+            'name' => $data['name'],
+        ];
+
+        $response = $this->authService->updateUser($input, $id);
+
+        return $this->successResponse($response, 200);
+    }
 }

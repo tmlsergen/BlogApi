@@ -11,4 +11,9 @@ class PostService extends Service implements PostServiceInterface
     {
         return 'App\Repositories\Contacts\PostRepositoryInterface';
     }
+
+    public function getByCategory($id)
+    {
+        return $this->repositoryParam->findAllBy('category', $id);
+    }
 }
